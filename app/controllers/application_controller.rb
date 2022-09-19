@@ -3,6 +3,7 @@ class ApplicationController < ActionController::API
   def authenticate_request
     req_api_key = request.headers["HTTP_API_KEY"];
     user = User.find_by(api_key: req_api_key);
+    puts request.headers["HTTP_USER_AGENT"]
 
     if request.headers['REQUEST_PATH'] === "/api/v1/users/service"
 
